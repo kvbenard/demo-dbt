@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: circle
+    database: le-wagon-386118
+    schema: raw_data_circle
+    
+    tables: 
+        - name: raw_cc_stock
+          description: product's stocks
+          tests:
+            - unique:
+                column_name: "(model || '_' || color || '_' || size)"
+        - name: raw_cc_sales
