@@ -4,10 +4,9 @@ sources:
   - name: circle
     database: le-wagon-386118
     schema: raw_data_circle
-    
     tables: 
         - name: stock
-          identifier: "raw_cc_stock"
+          identifier: raw_cc_stock
           description: product's stocks
           tests:
             - unique:

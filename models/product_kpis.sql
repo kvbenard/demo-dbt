@@ -3,7 +3,7 @@ WITH product_stock AS (
     product_id,
     SUM(stock) as stock,
     AVG(price) as price
-  FROM {{ ref('stg_circle__raw_cc_stock') }}
+  FROM {{ref('stg_circle__stock')}}
   GROUP BY 1
 ),
 
@@ -11,7 +11,7 @@ product_sales AS (
   SELECT 
     product_id,
     SUM(quantity) as quantity
-  FROM {{ ref('stg_circle__raw_cc_sales') }}
+  FROM {{ref('stg_circle__sales')}}
   GROUP BY 1
 )
 
