@@ -4,12 +4,6 @@ sources:
   - name: circle
     schema: raw_data_circle
     tables: 
-        - name: stock
-          identifier: raw_cc_stock
-          description: product's stocks
-          columns:
-            - name: stock
-              description: "{{doc('stock')}}"
         - name: sales
           identifier: raw_cc_sales
           freshness: 
