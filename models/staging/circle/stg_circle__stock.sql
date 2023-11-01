@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        concat(model, '_', color, '_', size) as product_id,
+        {{create_product_id('model', 'color', 'size')}} as product_id,
         model,
         model_name,
         color,
