@@ -17,6 +17,9 @@ sources:
               count: 90
               period: day
           loaded_at_field: CAST(date_date AS TIMESTAMP)
+  - name: google_sheets
+    tables:
+      - name: raw_stock
           
 models:
   - name: product_kpis
