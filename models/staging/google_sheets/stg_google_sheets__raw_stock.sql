@@ -11,6 +11,7 @@ renamed as (
     select
         _row,
         _fivetran_synced,
+        {{create_product_id('model', 'color', 'size')}} as product_id,
         color,
         color_name,
         forecast_stock,
