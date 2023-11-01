@@ -2,14 +2,32 @@ version: 2
 
 sources:
   - name: circle
-    database: le-wagon-386118
     schema: raw_data_circle
     tables: 
         - name: stock
           identifier: raw_cc_stock
           description: product's stocks
-          tests:
-            - unique:
-                column_name: "(model || '_' || color || '_' || size)"
+          columns:
+            - name: stock
+              description: "{{doc('stock')}}"
         - name: sales
           identifier: raw_cc_sales
+          freshness: 
+            warn_after:
+              count: 90
+              period: day
+          loaded_at_field: CAST(date_date AS TIMESTAMP)
+          
+models:
+  - name: product_kpis
+    columns:
+      - name: product_id
+      - name: stock
+        description: "{{doc('stock')}}"
+      - name: price
+      - name: estimated_revenue
+      - name: quantity
+      - name: revenue
+  - name: stg_circle__stock
+    columns:
+      - name: product_id
